@@ -197,4 +197,4 @@ Prevents stockouts during health events, protects compliance, smooths cash flow,
 Built for modern pharmacy supply chain management  
 Version 1.1.0 | January 2025
 
-For API integration details, see `API.md`. For field-level logic, refer to `BUSINESS_LOGIC.md`.
+For API integration details, see `docs/API.md`. For field-level logic, refer to `docs/business_logic.md`.
