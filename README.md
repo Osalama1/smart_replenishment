@@ -5,6 +5,13 @@
 Smart Replenishment eliminates manual spreadsheet tracking by automatically analyzing inventory consumption patterns and generating intelligent purchase recommendations. The system monitors stock levels continuously, calculates optimal reorder points, and alerts you before stockouts occur—with special consideration for delivery lead times.
 
 ---
+<img width="1561" height="862" alt="image" src="https://github.com/user-attachments/assets/4ec58932-75b6-419c-842c-c6bea0873892" />
+<img width="1538" height="858" alt="image" src="https://github.com/user-attachments/assets/1111287c-eee0-492c-9fc3-d69625f512e9" />
+Quick Test Execute after Installtionaln
+From Scheduled Job Type (doctype)
+You will find Two Scheduled Job 
+Hourly "smart_replenishment.api.generate_replenishment_recommendations"
+Daily "smart_replenishment.api.calculate_reorder_points_all_items"
 
 ## 🎯 What Problem Does This Solve?
 
