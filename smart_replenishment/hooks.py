@@ -82,8 +82,37 @@ app_license = "mit"
 # Installation
 # ------------
 
-# before_install = "smart_replenishment.install.before_install"
-# after_install = "smart_replenishment.install.after_install"
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Item-pharmacy_inventory_section",
+                    "Item-average_daily_consumption",
+                    "Item-consumption_calculation_period",
+                    "Item-last_consumption_update",
+                    "Item-pharmacy_column_1",
+                    "Item-global_reorder_point",
+                    "Item-maximum_stock_level",
+                    "Item-safety_stock_days",
+                    "Item-pharmacy_requirements_section",
+                    "Item-requires_prescription",
+                    "Item-is_controlled_substance",
+                    "Item-controlled_substance_schedule",
+                    "Item-pharmacy_column_2",
+                    "Item-storage_temperature",
+                    "Item-drug_category",
+                    "Item-preferred_supplier_section",
+                    "Item-preferred_supplier",
+                    "Item-supplier_reliability_score",
+                ],
+            ]
+        ],
+    }
+]
 
 # Uninstallation
 # ------------
@@ -135,36 +164,22 @@ app_license = "mit"
 
 # Document Events
 # ---------------
-# Hook on document methods and events
-
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Item": {
+        "on_update": "smart_replenishment.api.calculate_item_reorder_levels",
+    }
+}
 
 # Scheduled Tasks
 # ---------------
-
-# scheduler_events = {
-# 	"all": [
-# 		"smart_replenishment.tasks.all"
-# 	],
-# 	"daily": [
-# 		"smart_replenishment.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"smart_replenishment.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"smart_replenishment.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"smart_replenishment.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+    "daily": [
+        "smart_replenishment.api.calculate_reorder_points_all_items",
+    ],
+    "hourly": [
+        "smart_replenishment.api.generate_replenishment_recommendations",
+    ],
+}
 
 # Testing
 # -------
